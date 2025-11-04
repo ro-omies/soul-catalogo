@@ -41,6 +41,178 @@ body {
   padding: 20px;
 }
 
+/* =========================================
+   Responsive Global Enhancements
+   ========================================= */
+
+/* --- Ajuste de tipografía adaptable --- */
+html {
+  font-size: 100%;
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 95%;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 87%;
+  }
+}
+
+/* --- Contenedor principal adaptativo --- */
+.wrap {
+  padding: 16px;
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrap {
+    padding: 10px;
+  }
+}
+
+/* --- Navbar responsive elegante --- */
+@media (max-width: 768px) {
+  .nav-island {
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .nav-island a {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+  }
+
+  .btn-admin {
+    font-size: 0.9rem;
+    padding: 8px 14px;
+  }
+}
+
+/* --- Hero section adaptable --- */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .hero-text {
+    align-items: center;
+  }
+
+  .btn {
+    align-self: center;
+  }
+
+  .hero-img {
+    height: 220px;
+  }
+}
+
+/* --- Cards grid adaptable --- */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    text-align: center;
+  }
+}
+
+/* --- About section centrada en móviles --- */
+@media (max-width: 768px) {
+  .about {
+    padding: 20px 18px;
+  }
+
+  .about h3 {
+    font-size: 22px;
+  }
+
+  .about p.muted {
+    font-size: 15px;
+    text-align: justify;
+  }
+
+  .btn-about {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}
+
+/* --- Footer más compacto en móviles --- */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 28px 0;
+  }
+
+  .footer-text {
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .footer-social {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-social a {
+    font-size: 0.9rem;
+  }
+}
+
+/* --- Ajuste global para botones --- */
+@media (max-width: 480px) {
+  .btn,
+  .btn-about,
+  .btn-ghost,
+  .btn-cat,
+  .btn-cta {
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+  }
+}
+
+/* --- WhatsApp button optimizado para móviles --- */
+@media (max-width: 600px) {
+  .wa-float {
+    right: 14px;
+    bottom: 14px;
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+  }
+
+  .wa-float::before {
+    display: none; /* Oculta tooltip en móvil */
+  }
+}
+
+
 /* Header como contenedor */
 .site-header {
   width: 100%;
@@ -131,19 +303,7 @@ body {
   transform: translateY(-2px) scale(1.05);
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .nav-island {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding: 18px 22px;
-  }
 
-  .brand-nav {
-    margin-bottom: 8px;
-  }
-}
 
 /* ----------------- Cinta animada infinita ----------------- */
 .banner-marquee {
@@ -182,12 +342,7 @@ body {
   }
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .banner-marquee span {
-    font-size: 16px;
-  }
-}
+
 
 /* Hero Section */
 .hero {
@@ -254,17 +409,6 @@ body {
   color: var(--muted);
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-  .hero-img {
-    width: 100%;
-    height: 200px;
-  }
-}
 
 /* ---------- CARDS ---------- */
 .preview {
@@ -463,20 +607,7 @@ body {
 }
 
 
-/* Responsive */
-@media (max-width: 600px) {
-  .about {
-    padding: 20px 15px;
-  }
 
-  .about h3 {
-    font-size: 24px;
-  }
-
-  .about p.muted {
-    font-size: 15px;
-  }
-}
 
 /* ---------- Sección Contacto CTA ---------- */
 .cta-contact {
@@ -538,18 +669,6 @@ body {
   transform: translateY(-3px);
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-  .cta-contact .wrap {
-    padding: 50px 20px;
-  }
-  .cta-contact h3 {
-    font-size: 1.6rem;
-  }
-  .cta-contact p {
-    font-size: 0.95rem;
-  }
-}
 
 
 /* ---------- Footer ---------- */
@@ -605,13 +724,7 @@ body {
   font-size: 1.1rem;
 }
 
-/* Responsivo */
-@media (max-width: 600px) {
-  .footer-social {
-    flex-direction: column;
-    gap: 10px;
-  }
-}
+
 
 /* ---------- Botón flotante de WhatsApp ---------- */
 .wa-float {
