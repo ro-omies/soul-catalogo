@@ -1,0 +1,766 @@
+/* =========================================
+   Japandi-inspired Simple Stylesheet
+   ========================================= */
+
+   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap');
+   
+   
+   /* ---------- Root Variables ---------- */
+:root {
+  --bg: #fbfaf7;
+  --dark: #0f1724;
+  --muted: #6b7280;
+  --accent: #c3a86b;
+  --accent-hover: #b59850;
+  --shadow: rgba(31,30,28,0.12);
+  --radius: 20px;
+  --spacing: 20px;
+  --transition: all 0.3s ease;
+}
+
+
+/* ---------- Global Styles ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: var(--dark);
+  -webkit-font-smoothing: antialiased;
+  background: linear-gradient(135deg, #f4ede3, #e8dfd4);
+}
+
+/* ---------- Layout Wrappers ---------- */
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header como contenedor */
+.site-header {
+  width: 100%;
+  position: sticky;
+  margin-top: 30px; /* espacio superior */
+  display: flex;
+  justify-content: center;
+}
+
+/* Isla flotante */
+.nav-island {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing);
+  background: var(--bg);
+  padding: 20px 28px;
+  border-radius: var(--radius);
+  box-shadow: 0 12px 36px var(--shadow);
+  backdrop-filter: blur(12px);
+  position: relative;
+  z-index: 100;
+  transition: var(--transition);
+}
+
+.nav-island:hover {
+  transform: translateY(-3px) scale(1.01);
+}
+
+/* Brand integrado */
+.brand-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-nav .mark {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #efe6d6, #e7d5b0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--dark);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.brand-nav .brand-text h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.brand-nav .brand-text .muted {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Links del menú */
+.nav-island a {
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 12px;
+  transition: var(--transition);
+}
+
+.nav-island a:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* Botón Admin */
+.btn-admin {
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.btn-admin:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nav-island {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 22px;
+  }
+
+  .brand-nav {
+    margin-bottom: 8px;
+  }
+}
+
+/* ----------------- Cinta animada infinita ----------------- */
+.banner-marquee {
+  width: 100%;
+  overflow: hidden; /* oculta el exceso */
+  background: linear-gradient(90deg, #e8d9c0, #debc78);
+  padding: 12px 0;
+  margin: 24px 0;
+}
+
+.banner-marquee .marquee {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee-infinite 15s linear infinite;
+}
+
+/* Cada fragmento de texto */
+.banner-marquee span {
+  font-family: "Momo Signature", cursive;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: none;
+  text-transform: none;
+  color: var(--dark);
+  margin-right: 40px; /* separación entre repeticiones */
+}
+
+/* Animación continua */
+@keyframes marquee-infinite {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%); /* desplaza la mitad del contenido duplicado */
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .banner-marquee span {
+    font-size: 16px;
+  }
+}
+
+/* Hero Section */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 400px; /* un poco más de espacio para la imagen */
+  gap: 50px; /* separación entre texto e imagen */
+  align-items: start;
+  margin-top: 20px;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* espacio entre título, párrafo y botón */
+}
+
+.hero-text h2 {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.3;
+}
+
+.hero-text .muted {
+  color: var(--muted);
+  text-align: justify; /* Justificado */
+  line-height: 1.5; /* Interlineado más compacto */
+  margin: 0;
+}
+
+/* Botón */
+.btn {
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  align-self: start; /* Alinea el botón con el texto */
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+  color: #0f1724;
+}
+
+/* Imagen */
+.hero-img {
+  height: 100%;
+  background: linear-gradient(180deg, #efe6d6, #e7d5b0);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .hero-img {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+/* ---------- CARDS ---------- */
+.preview {
+  margin-top: 20px;
+}
+
+.preview h3 {
+  margin-top: 35px;
+  text-align: center; /* centra el texto horizontalmente */
+  font-size: 2rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.card {
+  background: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.card h4 {
+  margin: 8px 0 4px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* ----------------- Botones unificados: .btn y .btn-ghost ----------------- */
+.btn,
+.btn-ghost {
+  background: var(--accent);       /* fondo sólido */
+  color: #fff;                     /* texto blanco */
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: none;                    
+  overflow: visible;
+}
+
+/* Hover común para .btn y .btn-ghost */
+.btn:hover,
+.btn-ghost:hover {
+  background: var(--accent-hover, #b89359);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+/* Estilo particular para ghost */
+.btn-ghost {
+  background: transparent;
+  color: var(--dark);
+  border: 1px solid rgba(15,23,36,0.06);
+}
+
+.btn-ghost:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ----------------- Botón de categoría separado: .btn-cat ----------------- */
+.btn-cat {
+  display: block;      /* ocupa todo el ancho disponible */
+  width: fit-content;  /* ajusta al tamaño del contenido */
+  margin: 0 auto;      /* centrado automático */
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  margin-top: 50px;
+}
+
+.btn-cat:hover {
+  background: var(--accent-hover, #b89359);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+  color: #0f1724;
+}
+
+
+/* ---------- Filters ---------- */
+.filters {
+  display: flex;
+  gap: 12px;
+  margin: 12px 0 18px;
+}
+
+.filters input,
+.filters select {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #e6e6e4;
+}
+
+/* ----------------- Sección About / Filosofía ----------------- */
+.about {
+  max-width: 980px;                /* mismo ancho que wrap/hero */
+  margin: 60px auto;               /* centrado vertical y horizontal */
+  padding: 18px;                   /* igual que hero */
+  text-align: center;
+  line-height: 1.55;
+  background: #fff;
+  border-radius: 12px;             /* mismo border-radius que hero */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05); /* misma sombra que hero */
+  transition: transform 0.3s ease;
+  margin-bottom: 30px;
+}
+
+
+.about:hover {
+  transform: translateY(-4px);     /* efecto sutil al pasar el mouse */
+}
+
+.about h3 {
+  font-size: 28px;                  /* título más grande */
+  font-weight: 700;
+  color: var(--dark);
+  margin-top: 15px;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;           /* un toque de espacio entre letras */
+  position: relative;
+  display: inline-block;
+}
+
+/* Línea decorativa debajo del título */
+.about h3::after {
+  content: '';
+  display: block;
+  width: 70px;                      /* más largo */
+  height: 3px;
+  background: var(--accent);
+  margin: 10px auto 0;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.about h3:hover::after {
+  width: 90px;                      /* animación sutil al hover */
+}
+
+.about p.muted {
+  color: var(--muted);
+  font-size: 16px;
+  max-width: 700px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  text-align: justify;
+  line-height: 1.6;
+  font-weight: 400;                 /* lectura más ligera */
+  letter-spacing: 0.3px;
+}
+
+/* Botón para la sección About */
+.btn-about {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  margin-top: 20px;   
+  margin-bottom: 20px;       /* separación del párrafo */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+.btn-about:hover {
+  background: var(--accent-hover, #b89359);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+  color: #0f1724;
+}
+
+
+/* Responsive */
+@media (max-width: 600px) {
+  .about {
+    padding: 20px 15px;
+  }
+
+  .about h3 {
+    font-size: 24px;
+  }
+
+  .about p.muted {
+    font-size: 15px;
+  }
+}
+
+/* ---------- Sección Contacto CTA ---------- */
+.cta-contact {
+   width: 100%;
+  display: flex;
+  justify-content: center;
+  color: #2b2b2b;
+  text-align: center;
+  padding: 80px 0;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  
+}
+
+/* Contenedor interno con mismo ancho que hero/about */
+.cta-contact .wrap {
+  max-width: 950px;        /* igual que hero/about */
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  padding: 60px 40px;
+  box-sizing: border-box;
+ 
+}
+
+.cta-contact h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--dark);
+  margin-top: 5px;
+}
+
+.cta-contact p {
+  font-size: 1.05rem;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.btn-cta {
+  display: inline-block;
+  background-color: var(--accent);
+  color: #fff;
+  padding: 14px 38px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.btn-cta:hover {
+  background-color: var(--accent-hover);
+  color: #0f1724;
+  transform: translateY(-3px);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .cta-contact .wrap {
+    padding: 50px 20px;
+  }
+  .cta-contact h3 {
+    font-size: 1.6rem;
+  }
+  .cta-contact p {
+    font-size: 0.95rem;
+  }
+}
+
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: linear-gradient(135deg, #1c1c1c, #2e2e2e);
+  color: #f1f1f1;
+  padding: 40px 0;
+  margin-top: 60px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  border-top: 2px solid #444;
+}
+
+.site-footer .wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-text {
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  color: #dcdcdc;
+}
+
+.footer-text strong {
+  color: #f7c08a;
+  font-weight: 600;
+}
+
+.footer-social {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-social a {
+  color: #f1f1f1;
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #f7c08a;
+  transform: translateY(-3px);
+}
+
+.footer-social i {
+  font-size: 1.1rem;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .footer-social {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* ---------- Botón flotante de WhatsApp ---------- */
+.wa-float {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 58px;
+  height: 58px;
+  background: linear-gradient(135deg, #25D366, #1ebe5d);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+/* Hover: levanta un poco y brilla */
+.wa-float:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.3);
+}
+
+/* Efecto de pulso suave */
+.wa-float::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.4);
+  animation: pulse 2.5s infinite ease-in-out;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* Tooltip opcional (texto que aparece al pasar el mouse) */
+.wa-float::before {
+  content: 'Contáctanos';
+  position: absolute;
+  right: 70px;
+  background: #2b2b2b;
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.wa-float:hover::before {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* PANEL DE ADMINISTRACION */ 
+
+/* ---------- Admin Panel ---------- */
+.admin-wrap {
+  max-width: 520px;
+  margin: 60px auto;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+/* ---------- Modal ---------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 6, 11, 0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal[aria-hidden="false"] {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 520px;
+}
+
+/* ---------- Forms ---------- */
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #e6e6e4;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .nav {
+    display: none;
+  }
+  .hero {
+    padding: 12px;
+  }
+}

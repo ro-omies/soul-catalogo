@@ -1,0 +1,72 @@
+{
+  "products": [
+    {
+      "name": "Vela Satsuma",
+      "short": "Vela aromática cítrica • 200g",
+      "price": "450",
+      "category": "Velas",
+      "status": "Disponible",
+      "imageText": "Vela",
+      "color": "#d6a77a"
+    },
+    {
+      "name": "Pulsera Lino",
+      "short": "Pulsera tejida a mano • Lino natural",
+      "price": "300",
+      "category": "Pulseras",
+      "status": "Nuevo",
+      "imageText": "Pulsera",
+      "color": "#b88f6f"
+    },
+    {
+      "name": "Vela Hinoki",
+      "short": "Vela de madera Hinoki • 150g",
+      "price": "520",
+      "category": "Velas",
+      "status": "Disponible",
+      "imageText": "Vela",
+      "color": "#c7b089"
+    },
+    {
+      "name": "Colgante Madera",
+      "short": "Pequeño colgante tallado • Edición limitada",
+      "price": "760",
+      "category": "Decoración",
+      "status": "Disponible",
+      "imageText": "Colgante",
+      "color": "#a58a6a"
+    },
+    {
+      "name": "Pulsera Mar",
+      "short": "Hilo encerado • combinación azul",
+      "price": "280",
+      "category": "Pulseras",
+      "status": "Agotado",
+      "imageText": "Pulsera",
+      "color": "#6da3b8"
+    },
+    {
+      "name": "Set Ritual",
+      "short": "Set de velas + pulsera • Pack regalo",
+      "price": "1250",
+      "category": "Velas",
+      "status": "Popular",
+      "imageText": "Set",
+      "color": "#d1b38a"
+    }
+  ],
+  "gallery": [
+    {
+      "alt": "Proceso vela",
+      "color": "#efe6d6"
+    },
+    {
+      "alt": "Detalle tejido",
+      "color": "#e7d5b0"
+    },
+    {
+      "alt": "Empaque minimal",
+      "color": "#f5f1ea"
+    }
+  ]
+}
